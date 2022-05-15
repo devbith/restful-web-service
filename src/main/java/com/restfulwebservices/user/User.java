@@ -3,6 +3,7 @@ package com.restfulwebservices.user;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
@@ -11,17 +12,20 @@ public class User {
 
     private Long id;
 
+    @NotNull
     @Size(min = 2, message = "name should have at least two character")
     private String name;
 
+    @NotNull
     @Past(message = "dateofBirth should be of past date")
     private LocalDate dateOfBirth;
 
     @JsonIgnore
+    @NotNull
     @Size(min = 8, max =20,  message = "password should be at least 8 character long")
     private String password;
 
-    public User(Long id, String name, LocalDate dateOfBirth, String password) {
+    public User(final Long id, final String name, final LocalDate dateOfBirth, final String password) {
         this.id = id;
         this.name = name;
         this.dateOfBirth = dateOfBirth;
