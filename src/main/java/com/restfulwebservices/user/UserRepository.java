@@ -16,9 +16,9 @@ public class UserRepository {
    private static long userCount = 3L;
 
    static  {
-       userList.add(new User(1L, "Steve", LocalDate.of(1997, 7, 27)));
-       userList.add(new User(2L, "Mark", LocalDate.of(1996, 6, 26)));
-       userList.add(new User(3L, "Frank", LocalDate.of(1995, 5, 25)));
+       userList.add(new User(1L, "Steve", LocalDate.of(1997, 7, 27), "getmein"));
+       userList.add(new User(2L, "Mark", LocalDate.of(1996, 6, 26), "getmein"));
+       userList.add(new User(3L, "Frank", LocalDate.of(1995, 5, 25), "getmein"));
    }
 
    public List<User> findAll() {

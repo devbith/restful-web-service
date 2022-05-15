@@ -1,6 +1,8 @@
 package com.restfulwebservices.user;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
@@ -15,10 +17,23 @@ public class User {
     @Past(message = "dateofBirth should be of past date")
     private LocalDate dateOfBirth;
 
-    public User(Long id, String name, LocalDate dateOfBirth) {
+    @JsonIgnore
+    @Size(min = 8, max =20,  message = "password should be at least 8 character long")
+    private String password;
+
+    public User(Long id, String name, LocalDate dateOfBirth, String password) {
         this.id = id;
         this.name = name;
         this.dateOfBirth = dateOfBirth;
+        this.password = password;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public Long getId() {
